@@ -4,13 +4,13 @@ LangChain-based summary generation service that creates stakeholder-specific sum
 
 ## Features
 
-- **Stakeholder-Specific Summaries**: Tailored summaries for different roles (technical teams, vendors, clients, executives, etc.)
-- **LangChain Orchestration**: Uses LangChain for advanced LLM workflows
-- **Fine-Tuned Model Support**: Can use OpenAI fine-tuned models when available
-- **Multi-Document Synthesis**: Handles large document sets with map-reduce approach
-- **Evidence Linking**: Links summary sections to source documents
-- **Structured Output**: Organizes summaries into logical sections with key points
-- **PostgreSQL Storage**: Persistent storage of summaries and jobs
+- Stakeholder-specific summaries tailored for different roles (technical teams, vendors, clients, executives, etc.)
+- LangChain orchestration for LLM workflows
+- Fine-tuned model support for OpenAI models when available
+- Multi-document synthesis with map-reduce approach
+- Evidence linking to source documents
+- Structured output organized into logical sections with key points
+- PostgreSQL storage for summaries and jobs
 
 ## Architecture
 
@@ -65,14 +65,14 @@ GET /api/summaries/by_role/{role}/
 
 Each role receives a customized summary:
 
-- **Developer**: Technical specifications, implementation details, system architecture, code quality standards
-- **External Partner/Vendor**: Scope of work, deliverables, timelines, resource requirements, dependencies
-- **Technical Specialist**: Detailed design specifications, technical requirements, standards compliance, technical changes
-- **Client**: Progress updates, budget status, timeline, quality metrics, outcomes
-- **Project Manager**: Overall status, risks, issues, resource allocation, milestone tracking
-- **Legal**: Contractual obligations, compliance requirements, legal risks, regulatory matters
-- **Finance**: Cost analysis, budget variance, payment status, financial forecasts, ROI metrics
-- **Executive**: High-level overview, strategic implications, key risks, financial health, decision points
+- Developer: Technical specifications, implementation details, system architecture, code quality standards
+- External Partner/Vendor: Scope of work, deliverables, timelines, resource requirements, dependencies
+- Technical Specialist: Detailed design specifications, technical requirements, standards compliance, technical changes
+- Client: Progress updates, budget status, timeline, quality metrics, outcomes
+- Project Manager: Overall status, risks, issues, resource allocation, milestone tracking
+- Legal: Contractual obligations, compliance requirements, legal risks, regulatory matters
+- Finance: Cost analysis, budget variance, payment status, financial forecasts, ROI metrics
+- Executive: High-level overview, strategic implications, key risks, financial health, decision points
 
 ## Setup
 
@@ -152,11 +152,11 @@ Links documents to summary jobs with extracted context.
 ## LangChain Integration
 
 The service uses LangChain for:
-- **Prompt Templates**: Stakeholder-specific prompts
-- **Text Splitting**: Handles large documents
-- **Map-Reduce**: Synthesizes multiple document chunks
-- **Token Tracking**: Monitors usage
-- **Callbacks**: Observability and debugging
+- Prompt Templates: Stakeholder-specific prompts
+- Text Splitting: Handles large documents
+- Map-Reduce: Synthesizes multiple document chunks
+- Token Tracking: Monitors usage
+- Callbacks: Observability and debugging
 
 ## Development
 
@@ -188,36 +188,22 @@ docker run -p 8002:8000 --env-file .env summary-service
 
 ## Production Considerations
 
-1. **Async Processing**: Use Celery for background job processing
-2. **Caching**: Cache generated summaries (Redis)
-3. **Rate Limiting**: Implement API rate limits
-4. **Model Versioning**: Track which model version generated each summary
-5. **Cost Monitoring**: Track token usage and costs
-6. **Fine-Tuning**: Train custom models for better domain-specific summaries
+1. Async Processing: Use Celery for background job processing
+2. Caching: Cache generated summaries (Redis)
+3. Rate Limiting: Implement API rate limits
+4. Model Versioning: Track which model version generated each summary
+5. Cost Monitoring: Track token usage and costs
+6. Fine-Tuning: Train custom models for better domain-specific summaries
 
 ## Use Cases
 
-This service is designed for summarizing any type of business or technical document:
+The service supports summarization for various document types:
 
-- **Business Reports**: Quarterly earnings, market analysis, strategic planning documents
-- **Research Papers**: Academic research, white papers, technical studies
-- **Legal Documents**: Contracts, compliance reports, regulatory filings, case studies
-- **Financial Reports**: Budget analyses, investment proposals, audit reports, financial statements
-- **Technical Documentation**: API documentation, system specifications, technical designs, architecture reviews
-- **Meeting Notes**: Board meetings, project reviews, strategy sessions
-- **RFPs/RFIs**: Request for proposals, vendor evaluations, procurement documents
-- **General Documents**: Any multi-page document requiring stakeholder-specific summaries
-
-## Who Should Use This
-
-This service is ideal for:
-
-- **Organizations** that need to distribute different views of the same document to different stakeholders
-- **Teams** that work with long-form documents requiring quick insights
-- **Businesses** that need to synthesize information from multiple sources
-- **Professionals** who need to understand key points without reading entire documents
-- **Decision-makers** who need executive summaries tailored to their specific concerns
-
-## License
-
-MIT License
+- Business Reports: Quarterly earnings, market analysis, strategic planning documents
+- Research Papers: Academic research, white papers, technical studies
+- Legal Documents: Contracts, compliance reports, regulatory filings, case studies
+- Financial Reports: Budget analyses, investment proposals, audit reports, financial statements
+- Technical Documentation: API documentation, system specifications, technical designs, architecture reviews
+- Meeting Notes: Board meetings, project reviews, strategy sessions
+- RFPs/RFIs: Request for proposals, vendor evaluations, procurement documents
+- General Documents: Multi-page documents requiring stakeholder-specific summaries
